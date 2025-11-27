@@ -3,7 +3,7 @@ import { connectDB } from "@/lib/db";
 import Purchase from "@/models/Purchase";
 import Cashback from "@/models/Cashback";
 
-const CASHBACK_PERCENT = 10; // 10%
+const CASHBACK_PERCENT = 10; 
 
 export async function POST(req) {
   try {
@@ -18,13 +18,13 @@ export async function POST(req) {
       );
     }
 
-    // 1️⃣ Create purchase record
+    
     const purchase = await Purchase.create({ userId, storeId, amount });
 
-    // 2️⃣ Calculate cashback
+    
     const cashbackAmount = (amount * CASHBACK_PERCENT) / 100;
 
-    // 3️⃣ Create cashback record
+    
     const cashback = await Cashback.create({
       purchaseId: purchase._id,
       userId,

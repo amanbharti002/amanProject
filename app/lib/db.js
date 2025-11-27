@@ -4,7 +4,7 @@ export const connectDB = async () => {
   if (mongoose.connections[0].readyState) return;
 
   const MONGO_URL = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/cashbackSystem";
-19:49
+
 
 
 
